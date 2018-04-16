@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="text-center">
+    <h2>My Info</h2>
+    <div ng-if="infoCtrl.notSignedUp">
+        <div>Not Signed Up Yet.</div>
+        <div><a ui-sref="public.signup">Sign Up Now!</a></div>
+    </div>
+    <div ng-if="!infoCtrl.notSignedUp">
+        <div>First name: {{ infoCtrl.userInfo.firstName }}</div>
+        <div>Last name: {{ infoCtrl.userInfo.lastName }}</div>
+        <div>Email name: {{ infoCtrl.userInfo.email }}</div>
+        <div>Phone number: {{ infoCtrl.userInfo.phoneNumber }}</div>
+        <div>Menu Short Name: {{ infoCtrl.userInfo.menuShortName }}</div>
+        <div>
+            <menu-item menu-item="infoCtrl.menuItem"></menu-item>
+        </div>
+    </div>
+</div>

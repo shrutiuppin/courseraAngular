@@ -1,0 +1,75 @@
+<div class="container">
+    <div  class="text-center">
+<h2>Sign Up</h2>
+<form name="formSignUp" novalidate>
+    <div class="input-el-container form-group">
+        <input class="form-control" class="form-control" type="text" name="firstName" placeholder="First name"
+                ng-model="suCtrl.user.firstName"
+                ng-min-length="1"
+                required>
+        <span class="alert-danger"
+            ng-if="(formSignUp.firstName.$error.minlength ||
+                formSignUp.firstName.$error.required) &&
+                formSignUp.firstName.$touched">
+            First name is required
+        </span>
+    </div>
+    <div class="input-el-container form-group">
+        <input class="form-control" class="form-control" type="text" name="lastName" placeholder="Last name"
+            ng-model="suCtrl.user.lastName"
+            ng-min-lenth="1"
+            required>
+        <span class="alert-danger"
+            ng-if="(formSignUp.lastName.$error.minlength ||
+            formSignUp.lastName.$error.required) &&
+            formSignUp.lastName.$touched">
+            Last name is required
+        </span>
+    </div>
+
+    <div class="input-el-container form-group">
+    <input class="form-control" class="form-control" type="email" name="email" placeholder="you@example.com"
+            ng-model="suCtrl.user.email"
+            required>
+    <span class="alert-danger"
+            ng-if="formSignUp.email.$invalid && formSignUp.email.$touched">
+       Valid email is required
+    </span>
+    </div>
+
+
+    <div class="input-el-container form-group">
+    <input class="form-control" class="form-control" type="phone" name="phoneNumber" placeholder="XXX-XXX-XXXX"
+            ng-model="suCtrl.user.phoneNumber"
+            pattern="(\d{3})-(\d{3})-(\d{4})"
+            required>
+    <span class="alert-danger"
+            ng-if="formSignUp.phoneNumber.$invalid && formSignUp.phoneNumber.$touched">
+        Valid Phone number is required
+    </span>
+    </div>
+
+    <div class="input-el-container form-group">
+        <input class="form-control" class="form-control" type="text" name="menuShortName" placeholder="Short Name of your favorite menu"
+            ng-model="suCtrl.user.menuShortName"
+            ng-min-length="1"
+            required>
+    <span class="alert-danger"
+            ng-if="(formSignUp.menuShortName.$error.minlength || suCtrl.user.menuInvalid || formSignUp.lastName.$error.required)&&
+            formSignUp.menuShortName.$touched">
+            No such menu number exists
+    </span>
+    </div>
+
+    <button
+        ng-disabled="formSignUp.$invalid" class="btn btn-default"
+        ng-click="suCtrl.submit()">
+        Submit
+    </button>
+
+    <div ng-if="suCtrl.saved">
+        Your information has been saved.
+    </div>
+</form>
+</div>
+</div>
